@@ -73,6 +73,10 @@ inputs:
   internal_git_binary:
     description: Internal use only! Path to git binary used to check if git is available. (Don't change this!)
     default: git
+  retry_count:
+    description: Number of times to retry the commit if it fails. (Default 5)
+    default: 10
+
 
 outputs:
   changes_detected:
