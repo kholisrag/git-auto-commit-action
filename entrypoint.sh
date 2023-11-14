@@ -40,7 +40,8 @@ _retry() {
         sleep $wait
 
         # pull the latest changes after failed to push
-        git pull ${INPUT_RETRY_PULL_OPTIONS}
+        git -c user.name="$INPUT_COMMIT_USER_NAME" -c user.email="$INPUT_COMMIT_USER_EMAIL" \
+            pull ${INPUT_RETRY_PULL_OPTIONS}
 
         else
         echo "Retry $count/$retries exited $exit, no more retries left."
