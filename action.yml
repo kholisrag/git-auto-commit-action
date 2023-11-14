@@ -76,6 +76,9 @@ inputs:
   retry_count:
     description: Number of times to retry the commit if it fails. (Default 5)
     default: 10
+  retry_pull_options:
+    description: Options to pass to git pull in retry attempts. (Default --rebase)
+    default: '--rebase'
 
 
 outputs:

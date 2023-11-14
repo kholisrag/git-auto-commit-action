@@ -38,6 +38,10 @@ _retry() {
         if [ $count -lt $retries ]; then
         echo "Retry $count/$retries exited $exit, retrying in $wait seconds..."
         sleep $wait
+
+        # pull the latest changes after failed to push
+        git pull ${INPUT_RETRY_PULL_OPTIONS}
+
         else
         echo "Retry $count/$retries exited $exit, no more retries left."
         return $exit
